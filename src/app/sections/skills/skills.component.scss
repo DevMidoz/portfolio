@@ -1,11 +1,13 @@
 .skills-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-  gap: 1.1rem;
-  align-items: start;
+  column-count: 4;
+  column-gap: 1.1rem;
 }
 
 .skill-card {
+  display: inline-block;
+  width: 100%;
+  margin-bottom: 1.1rem;
+  break-inside: avoid;
   padding: 1.6rem 1.4rem;
   background: var(--bg-card);
   border: 1px solid var(--border);
@@ -44,9 +46,15 @@
   gap: 0.4rem;
 }
 
-@media (max-width: 560px) {
+@media (max-width: 1080px) {
   .skills-grid {
-    grid-template-columns: 1fr;
+    column-count: 2;
+  }
+}
+
+@media (max-width: 640px) {
+  .skills-grid {
+    column-count: 1;
   }
 
   .skill-card h3 {
