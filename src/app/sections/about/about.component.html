@@ -1,0 +1,21 @@
+<section id="about" class="section about">
+  <div class="container">
+    <div class="section-head" appReveal>
+      <span class="eyebrow">Who I am</span>
+      <h2 class="section-title">About Me</h2>
+    </div>
+
+    <div class="about-grid">
+      <p class="about-summary" appReveal>{{ profile.summary }}</p>
+
+      <div class="highlight-grid">
+        @for (item of highlights; track item.title; let i = $index) {
+          <div class="highlight-card" appReveal [revealDelay]="i * 90">
+            <h3>{{ item.title }}</h3>
+            <p>{{ item.desc }}</p>
+          </div>
+        }
+      </div>
+    </div>
+  </div>
+</section>

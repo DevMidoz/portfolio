@@ -1,0 +1,25 @@
+<footer class="footer">
+  <div class="container footer-inner">
+    <div class="footer-brand">
+      <span class="logo-mark">AY</span>
+      <div>
+        <p class="footer-name">{{ profile.name }}</p>
+        <p class="footer-role">{{ profile.title }}</p>
+      </div>
+    </div>
+
+    <p class="footer-note">Built with Angular · Designed &amp; developed by {{ profile.name }}</p>
+
+    <div class="footer-links">
+      <a [href]="profile.github" target="_blank" rel="noopener" aria-label="GitHub">
+        <app-icon name="github" [size]="18" />
+      </a>
+      <a [href]="'mailto:' + profile.email" aria-label="Email">
+        <app-icon name="mail" [size]="18" />
+      </a>
+    </div>
+  </div>
+  <div class="container">
+    <p class="copyright">&copy; {{ year }} {{ profile.name }}. All rights reserved.</p>
+  </div>
+</footer>

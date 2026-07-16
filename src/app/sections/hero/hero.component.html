@@ -1,0 +1,73 @@
+<section id="top" class="hero">
+  <div class="hero-glow hero-glow-1"></div>
+  <div class="hero-glow hero-glow-2"></div>
+
+  <div class="container hero-inner">
+    <div class="hero-content">
+      <span class="eyebrow">Hello, I'm</span>
+      <h1 class="hero-name">{{ profile.name }}</h1>
+      <p class="hero-role">
+        <span class="typed gradient-text">{{ typedText() }}</span><span class="cursor" aria-hidden="true">|</span>
+      </p>
+      <p class="hero-tagline">{{ profile.tagline }}</p>
+
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="#projects">
+          View Projects
+          <app-icon name="chevron-right" [size]="16" />
+        </a>
+        <a class="btn btn-outline" href="#contact">Contact Me</a>
+        <a class="btn btn-outline" [href]="profile.resumeFile" download>
+          Download CV
+          <app-icon name="download" [size]="16" />
+        </a>
+      </div>
+
+      <div class="hero-meta">
+        <a class="meta-item" [href]="'mailto:' + profile.email">
+          <app-icon name="mail" [size]="16" />
+          {{ profile.email }}
+        </a>
+        <span class="meta-item">
+          <app-icon name="location" [size]="16" />
+          {{ profile.location }}
+        </span>
+        <a class="meta-item" [href]="profile.github" target="_blank" rel="noopener">
+          <app-icon name="github" [size]="16" />
+          &#64;{{ profile.githubUser }}
+        </a>
+      </div>
+    </div>
+
+    <div class="hero-panel">
+      <div class="hero-card">
+        <div class="hero-card-header">
+          <span class="dot dot-red"></span>
+          <span class="dot dot-yellow"></span>
+          <span class="dot dot-green"></span>
+          <span class="hero-card-title">profile.ts</span>
+        </div>
+        <pre class="hero-code"><code><span class="tok-key">const</span> <span class="tok-var">engineer</span> = &#123;
+  name: <span class="tok-str">'Ahmed Yasser'</span>,
+  role: <span class="tok-str">'Senior Software Engineer'</span>,
+  stack: [<span class="tok-str">'Angular'</span>, <span class="tok-str">'Vue.js'</span>, <span class="tok-str">'TypeScript'</span>],
+  principles: <span class="tok-str">'SOLID'</span>,
+  status: <span class="tok-str">'Building great UX'</span>,
+&#125;;</code></pre>
+      </div>
+
+      <div class="stat-grid">
+        @for (stat of stats; track stat.label) {
+          <div class="stat-card">
+            <p class="stat-value gradient-text">{{ stat.value }}</p>
+            <p class="stat-label">{{ stat.label }}</p>
+          </div>
+        }
+      </div>
+    </div>
+  </div>
+
+  <a href="#about" class="scroll-cue" aria-label="Scroll to About section">
+    <app-icon name="arrow-down" [size]="18" />
+  </a>
+</section>

@@ -1,0 +1,44 @@
+<section id="contact" class="section contact">
+  <div class="container">
+    <div class="contact-panel" appReveal>
+      <div class="contact-copy">
+        <span class="eyebrow">Get in touch</span>
+        <h2 class="section-title">Let's build something great together</h2>
+        <p class="section-desc">
+          Have a project in mind or an opening for a Senior Software Engineer? I'd love to
+          hear from you — I typically reply within a day.
+        </p>
+        <a class="btn btn-primary" [href]="'mailto:' + profile.email">
+          <app-icon name="send" [size]="16" />
+          Say hello
+        </a>
+      </div>
+
+      <div class="contact-channels">
+        @for (channel of channels; track channel.label) {
+          @if (channel.href) {
+            <a class="channel-card" [href]="channel.href" target="_blank" rel="noopener">
+              <span class="channel-icon">
+                <app-icon [name]="channel.icon" [size]="18" />
+              </span>
+              <span>
+                <span class="channel-label">{{ channel.label }}</span>
+                <span class="channel-value">{{ channel.value }}</span>
+              </span>
+            </a>
+          } @else {
+            <div class="channel-card no-link">
+              <span class="channel-icon">
+                <app-icon [name]="channel.icon" [size]="18" />
+              </span>
+              <span>
+                <span class="channel-label">{{ channel.label }}</span>
+                <span class="channel-value">{{ channel.value }}</span>
+              </span>
+            </div>
+          }
+        }
+      </div>
+    </div>
+  </div>
+</section>

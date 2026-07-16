@@ -1,0 +1,45 @@
+<header class="navbar" [class.scrolled]="isScrolled()">
+  <div class="container navbar-inner">
+    <a href="#top" class="logo">
+      <span class="logo-mark">AY</span>
+      <span class="logo-text">Ahmed Yasser</span>
+    </a>
+
+    <nav class="nav-links" [class.open]="isMenuOpen()">
+      @for (link of links; track link.href) {
+        <a [href]="link.href" (click)="closeMenu()">{{ link.label }}</a>
+      }
+      <div class="nav-actions-mobile">
+        <a class="btn btn-primary" [href]="profile.resumeFile" download (click)="closeMenu()">
+          <app-icon name="download" [size]="16" />
+          Resume
+        </a>
+      </div>
+    </nav>
+
+    <div class="navbar-actions">
+      <button
+        type="button"
+        class="icon-btn"
+        (click)="themeService.toggle()"
+        [attr.aria-label]="themeService.theme() === 'dark' ? 'Switch to light theme' : 'Switch to dark theme'"
+      >
+        <app-icon [name]="themeService.theme() === 'dark' ? 'sun' : 'moon'" [size]="18" />
+      </button>
+
+      <a class="btn btn-primary resume-btn" [href]="profile.resumeFile" download>
+        <app-icon name="download" [size]="16" />
+        Resume
+      </a>
+
+      <button
+        type="button"
+        class="icon-btn menu-toggle"
+        (click)="toggleMenu()"
+        [attr.aria-label]="isMenuOpen() ? 'Close menu' : 'Open menu'"
+      >
+        <app-icon [name]="isMenuOpen() ? 'close' : 'menu'" [size]="20" />
+      </button>
+    </div>
+  </div>
+</header>

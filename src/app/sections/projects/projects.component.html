@@ -1,0 +1,73 @@
+<section id="projects" class="section projects">
+  <div class="container">
+    <div class="section-head" appReveal>
+      <span class="eyebrow">Recent work</span>
+      <h2 class="section-title">Featured Projects</h2>
+      <p class="section-desc">
+        Live from my GitHub — a snapshot of recent public repositories. Fetched directly from
+        the GitHub API, no backend required.
+      </p>
+    </div>
+
+    @if (loading()) {
+      <div class="projects-grid">
+        @for (i of [1, 2, 3, 4, 5, 6]; track i) {
+          <div class="project-card skeleton"></div>
+        }
+      </div>
+    } @else if (errored() || repos().length === 0) {
+      <div class="projects-grid">
+        @for (repo of fallbackRepos; track repo.name) {
+          <a class="project-card" [href]="repo.html_url" target="_blank" rel="noopener" appReveal>
+            <div class="project-card-head">
+              <app-icon name="code" [size]="20" />
+              <app-icon name="external" [size]="16" class="external-icon" />
+            </div>
+            <h3>{{ repo.name }}</h3>
+            <p class="project-desc">View this project on GitHub.</p>
+          </a>
+        }
+      </div>
+    } @else {
+      <div class="projects-grid">
+        @for (repo of repos(); track repo.id; let i = $index) {
+          <a
+            class="project-card"
+            [href]="repo.html_url"
+            target="_blank"
+            rel="noopener"
+            appReveal
+            [revealDelay]="(i % 6) * 70"
+          >
+            <div class="project-card-head">
+              <app-icon name="code" [size]="20" />
+              <app-icon name="external" [size]="16" class="external-icon" />
+            </div>
+            <h3>{{ repo.name }}</h3>
+            <p class="project-desc">{{ repo.description || 'No description provided.' }}</p>
+            <div class="project-meta">
+              @if (repo.language) {
+                <span class="pill">{{ repo.language }}</span>
+              }
+              <span class="meta-stat">
+                <app-icon name="star" [size]="14" />
+                {{ repo.stargazers_count }}
+              </span>
+              <span class="meta-stat">
+                <app-icon name="fork" [size]="14" />
+                {{ repo.forks_count }}
+              </span>
+            </div>
+          </a>
+        }
+      </div>
+    }
+
+    <div class="projects-cta" appReveal>
+      <a class="btn btn-outline" [href]="profile.github" target="_blank" rel="noopener">
+        <app-icon name="github" [size]="16" />
+        View all projects on GitHub
+      </a>
+    </div>
+  </div>
+</section>

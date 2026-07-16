@@ -1,0 +1,131 @@
+.timeline {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 2.25rem;
+  padding-left: 2.4rem;
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  top: 0.4rem;
+  bottom: 0.4rem;
+  left: 0.55rem;
+  width: 2px;
+  background: linear-gradient(to bottom, var(--accent-1), transparent);
+}
+
+.timeline-item {
+  position: relative;
+}
+
+.timeline-marker {
+  position: absolute;
+  left: -2.4rem;
+  top: 0.35rem;
+  width: 1.2rem;
+  display: flex;
+  justify-content: center;
+}
+
+.marker-dot {
+  width: 0.8rem;
+  height: 0.8rem;
+  border-radius: 50%;
+  background: var(--bg);
+  border: 2px solid var(--accent-1);
+}
+
+.marker-dot.current {
+  background: var(--accent-gradient);
+  box-shadow: 0 0 0 4px color-mix(in srgb, var(--accent-1) 25%, transparent);
+}
+
+.timeline-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 1.5rem 1.6rem;
+  transition: border-color 0.3s ease, background-color 0.3s ease, transform 0.3s ease;
+}
+
+.timeline-card:hover {
+  border-color: var(--border-strong);
+  background: var(--bg-card-hover);
+  transform: translateX(4px);
+}
+
+.timeline-card-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-bottom: 1rem;
+}
+
+.timeline-card-head h3 {
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+
+.timeline-company {
+  color: var(--accent-2);
+  font-weight: 600;
+  font-size: 0.9rem;
+  margin-top: 0.2rem;
+}
+
+.timeline-date {
+  flex-shrink: 0;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 0.35rem 0.8rem;
+  white-space: nowrap;
+}
+
+.timeline-date.current {
+  color: #fff;
+  background: var(--accent-gradient);
+  border-color: transparent;
+}
+
+.timeline-points {
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+}
+
+.timeline-points li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+  color: var(--text-secondary);
+  font-size: 0.92rem;
+  line-height: 1.6;
+}
+
+.timeline-points app-icon {
+  margin-top: 0.2rem;
+  color: var(--accent-1);
+  flex-shrink: 0;
+}
+
+@media (max-width: 640px) {
+  .timeline {
+    padding-left: 1.75rem;
+  }
+
+  .timeline-marker {
+    left: -1.75rem;
+  }
+
+  .timeline-card-head {
+    flex-direction: column;
+  }
+}
