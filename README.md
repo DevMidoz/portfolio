@@ -5,8 +5,6 @@ Software Engineer specializing in Angular, Vue.js and ASP.NET Core.
 
 **Live site:** https://devmidoz.github.io/portfolio/
 
-![Deploy to GitHub Pages](https://github.com/DevMidoz/portfolio/actions/workflows/deploy.yml/badge.svg)
-
 ## Highlights
 
 - Built entirely with standalone Angular 19 components — no backend server required.
@@ -30,8 +28,19 @@ npm run build       # production build -> dist/portfolio/browser
 
 ## Deployment
 
-Every push to `main` triggers [`.github/workflows/deploy.yml`](.github/workflows/deploy.yml),
-which builds the app and publishes `dist/portfolio/browser` to GitHub Pages.
+The site is published to the `gh-pages` branch via [`angular-cli-ghpages`](https://github.com/angular-schule/angular-cli-ghpages):
+
+```bash
+npm run deploy
+```
+
+This builds the app with the correct base href and pushes `dist/portfolio/browser` to the
+`gh-pages` branch, which GitHub Pages serves directly.
+
+A GitHub Actions workflow ([`.github/workflows/deploy.yml`](.github/workflows/deploy.yml)) is
+also included to build and deploy automatically on every push to `main`. It currently can't run
+because GitHub Actions is disabled on this account due to a billing hold — once that's resolved,
+re-enable Pages with **Settings → Pages → Source: GitHub Actions** to switch to that flow.
 
 ## Content
 
