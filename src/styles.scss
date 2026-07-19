@@ -6,42 +6,45 @@
   --radius-sm: 10px;
   --radius-md: 16px;
   --radius-lg: 24px;
+  --glass-blur: blur(20px) saturate(160%);
 }
 
 :root[data-theme='dark'] {
-  --bg: #0a0e1a;
-  --bg-elevated: #10152a;
-  --bg-card: #131a30;
-  --bg-card-hover: #171f3a;
-  --text-primary: #eef1fb;
-  --text-secondary: #99a2c3;
-  --text-muted: #6b7394;
-  --border: rgba(255, 255, 255, 0.08);
-  --border-strong: rgba(255, 255, 255, 0.14);
-  --accent-1: #6d6bff;
-  --accent-2: #22d3ee;
+  --bg: #05080a;
+  --bg-elevated: rgba(9, 22, 17, 0.6);
+  --bg-card: rgba(10, 24, 18, 0.5);
+  --bg-card-hover: rgba(15, 34, 25, 0.64);
+  --text-primary: #eafff2;
+  --text-secondary: #9fd6bb;
+  --text-muted: #6f9c85;
+  --border: rgba(90, 255, 170, 0.16);
+  --border-strong: rgba(120, 255, 190, 0.36);
+  --accent-1: #00ffa3;
+  --accent-2: #8aff33;
   --accent-gradient: linear-gradient(135deg, var(--accent-1), var(--accent-2));
-  --shadow-lg: 0 30px 80px -30px rgba(0, 0, 0, 0.7);
-  --shadow-md: 0 16px 40px -16px rgba(0, 0, 0, 0.55);
-  --overlay: rgba(10, 14, 26, 0.85);
+  --shadow-lg: inset 0 1px 0 rgba(190, 255, 220, 0.08), 0 0 55px -10px rgba(0, 255, 163, 0.35),
+    0 30px 80px -30px rgba(0, 0, 0, 0.85);
+  --shadow-md: inset 0 1px 0 rgba(190, 255, 220, 0.06), 0 0 32px -10px rgba(0, 255, 163, 0.28),
+    0 16px 40px -16px rgba(0, 0, 0, 0.6);
+  --overlay: rgba(4, 10, 8, 0.75);
 }
 
 :root[data-theme='light'] {
-  --bg: #f6f7fc;
-  --bg-elevated: #ffffff;
-  --bg-card: #ffffff;
-  --bg-card-hover: #f1f2fb;
-  --text-primary: #131632;
-  --text-secondary: #545b7c;
-  --text-muted: #7a8099;
-  --border: rgba(19, 22, 50, 0.08);
-  --border-strong: rgba(19, 22, 50, 0.14);
-  --accent-1: #5451e0;
-  --accent-2: #0891b2;
+  --bg: #f4fbf7;
+  --bg-elevated: rgba(255, 255, 255, 0.7);
+  --bg-card: rgba(255, 255, 255, 0.65);
+  --bg-card-hover: rgba(240, 253, 246, 0.8);
+  --text-primary: #0c1f16;
+  --text-secondary: #3d6350;
+  --text-muted: #6b8c7a;
+  --border: rgba(5, 150, 105, 0.14);
+  --border-strong: rgba(5, 150, 105, 0.24);
+  --accent-1: #059669;
+  --accent-2: #65a30d;
   --accent-gradient: linear-gradient(135deg, var(--accent-1), var(--accent-2));
-  --shadow-lg: 0 30px 80px -30px rgba(30, 34, 70, 0.25);
-  --shadow-md: 0 16px 40px -16px rgba(30, 34, 70, 0.18);
-  --overlay: rgba(246, 247, 252, 0.85);
+  --shadow-lg: inset 0 1px 0 rgba(255, 255, 255, 0.6), 0 30px 80px -30px rgba(5, 100, 70, 0.22);
+  --shadow-md: inset 0 1px 0 rgba(255, 255, 255, 0.5), 0 16px 40px -16px rgba(5, 100, 70, 0.16);
+  --overlay: rgba(244, 251, 247, 0.78);
 }
 
 * {
@@ -53,12 +56,30 @@ html {
 }
 
 body {
+  position: relative;
   margin: 0;
   font-family: var(--font-sans);
   background: var(--bg);
   color: var(--text-primary);
   transition: background-color 0.3s ease, color 0.3s ease;
   -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  inset: -10%;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    radial-gradient(560px circle at 12% 15%, color-mix(in srgb, var(--accent-1) 22%, transparent), transparent 62%),
+    radial-gradient(640px circle at 90% 30%, color-mix(in srgb, var(--accent-2) 16%, transparent), transparent 65%),
+    radial-gradient(680px circle at 20% 95%, color-mix(in srgb, var(--accent-1) 20%, transparent), transparent 60%),
+    radial-gradient(560px circle at 85% 100%, color-mix(in srgb, var(--accent-2) 18%, transparent), transparent 60%);
+  filter: blur(10px);
+  opacity: 0.6;
+  transition: opacity 0.4s ease;
 }
 
 h1,
@@ -210,7 +231,43 @@ button {
   background: var(--bg-card);
   border: 1px solid var(--border);
   border-radius: var(--radius-lg);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
   transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease, background-color 0.3s ease;
+}
+
+/* Shared glassmorphism treatment for every card-like surface across the site */
+.hero-card,
+.skill-card,
+.timeline-card,
+.project-card,
+.highlight-card,
+.edu-card,
+.channel-card,
+.stat-card,
+.contact-panel {
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+}
+
+.skill-card,
+.timeline-card,
+.project-card,
+.highlight-card,
+.edu-card,
+.channel-card,
+.stat-card {
+  box-shadow: var(--shadow-md);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease, background-color 0.3s ease;
+}
+
+.skill-card:hover,
+.timeline-card:hover,
+.project-card:hover,
+.highlight-card:hover,
+.edu-card:hover,
+.channel-card:not(.no-link):hover {
+  box-shadow: var(--shadow-lg);
 }
 
 .reveal {

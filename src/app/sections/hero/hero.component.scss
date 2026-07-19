@@ -11,8 +11,8 @@
 .hero-glow {
   position: absolute;
   border-radius: 50%;
-  filter: blur(90px);
-  opacity: 0.55;
+  filter: blur(100px);
+  opacity: 0.4;
   z-index: 0;
   pointer-events: none;
 }
@@ -31,7 +31,7 @@
   bottom: -180px;
   left: -140px;
   background: var(--accent-2);
-  opacity: 0.35;
+  opacity: 0.28;
 }
 
 .hero-inner {
@@ -180,7 +180,7 @@
 }
 
 .tok-str {
-  color: #22d3ee;
+  color: var(--accent-1);
 }
 
 .stat-grid {

@@ -7,7 +7,8 @@
       <span class="eyebrow">Hello, I'm</span>
       <h1 class="hero-name">{{ profile.name }}</h1>
       <p class="hero-role">
-        <span class="typed gradient-text">{{ typedText() }}</span><span class="cursor" aria-hidden="true">|</span>
+        <span class="typed gradient-text">{{ typedText() }}</span
+        ><span class="cursor" aria-hidden="true">|</span>
       </p>
       <p class="hero-tagline">{{ profile.tagline }}</p>
 
@@ -32,7 +33,12 @@
           <app-icon name="location" [size]="16" />
           {{ profile.location }}
         </span>
-        <a class="meta-item" [href]="profile.github" target="_blank" rel="noopener">
+        <a
+          class="meta-item"
+          [href]="profile.github"
+          target="_blank"
+          rel="noopener"
+        >
           <app-icon name="github" [size]="16" />
           &#64;{{ profile.githubUser }}
         </a>
@@ -47,7 +53,9 @@
           <span class="dot dot-green"></span>
           <span class="hero-card-title">profile.ts</span>
         </div>
-        <pre class="hero-code"><code><span class="tok-key">const</span> <span class="tok-var">engineer</span> = &#123;
+        <pre
+          class="hero-code"
+        ><code><span class="tok-key">const</span> <span class="tok-var">engineer</span> = &#123;
   name: <span class="tok-str">'Ahmed Yasser'</span>,
   role: <span class="tok-str">'Senior Software Engineer'</span>,
   stack: [<span class="tok-str">'Angular'</span>, <span class="tok-str">'Vue.js'</span>, <span class="tok-str">'TypeScript'</span>],

@@ -175,7 +175,15 @@ export const SKILLS: SkillGroup[] = [
   {
     category: 'Frontend',
     icon: 'code',
-    skills: ['Angular (17–20)', 'TypeScript', 'JavaScript (ES6+)', 'Vue.js', 'React', 'HTML5', 'CSS3 / SCSS'],
+    skills: [
+      'Angular (17–20)',
+      'TypeScript',
+      'JavaScript (ES6+)',
+      'Vue.js',
+      'React',
+      'HTML5',
+      'CSS3 / SCSS',
+    ],
   },
   {
     category: 'UI Components & Design Systems',
@@ -214,7 +222,12 @@ export const SKILLS: SkillGroup[] = [
   {
     category: 'Architecture',
     icon: 'git-branch',
-    skills: ['SOLID Principles', 'Clean Architecture', 'Repository Pattern', 'Scalable Application Design'],
+    skills: [
+      'SOLID Principles',
+      'Clean Architecture',
+      'Repository Pattern',
+      'Scalable Application Design',
+    ],
   },
   {
     category: 'Testing',
@@ -229,7 +242,15 @@ export const SKILLS: SkillGroup[] = [
   {
     category: 'AI Productivity',
     icon: 'cpu',
-    skills: ['Claude', 'ChatGPT', 'Gemini', 'Cursor', 'Claude Code', 'GitHub Copilot', 'Antigravity'],
+    skills: [
+      'Claude',
+      'ChatGPT',
+      'Gemini',
+      'Cursor',
+      'Claude Code',
+      'GitHub Copilot',
+      'Antigravity',
+    ],
   },
 ];
 
