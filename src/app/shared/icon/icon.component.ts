@@ -56,6 +56,12 @@ const ICONS: Record<string, string> = {
     '<rect x="4" y="4" width="16" height="6.5" rx="1.6" fill="none" stroke="currentColor" stroke-width="1.5"/><rect x="4" y="13.5" width="16" height="6.5" rx="1.6" fill="none" stroke="currentColor" stroke-width="1.5"/><circle cx="7.6" cy="7.25" r="0.9" fill="currentColor"/><circle cx="7.6" cy="16.75" r="0.9" fill="currentColor"/>',
   send:
     '<path d="M21 3 3 10.5l7 2.7 2.7 7L21 3Z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M10 13.2 21 3" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>',
+  home:
+    '<path d="M4 11.5 12 4l8 7.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><path d="M6 10v9a1 1 0 0 0 1 1h3v-5.5h4V20h3a1 1 0 0 0 1-1v-9" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>',
+  user:
+    '<circle cx="12" cy="8" r="3.6" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M4.5 20c1-3.6 4-5.6 7.5-5.6s6.5 2 7.5 5.6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>',
+  folder:
+    '<path d="M3.5 7A1.5 1.5 0 0 1 5 5.5h4.2l2 2H19A1.5 1.5 0 0 1 20.5 9v8A1.5 1.5 0 0 1 19 18.5H5A1.5 1.5 0 0 1 3.5 17V7Z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>',
 };
 
 @Component({

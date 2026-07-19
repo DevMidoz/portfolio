@@ -1,12 +1,13 @@
 import { Component } from '@angular/core';
 import { IconComponent } from '../../shared/icon/icon.component';
 import { RevealDirective } from '../../core/directives/reveal.directive';
+import { PanelScrollDirective } from '../../core/directives/panel-scroll.directive';
 import { PROFILE } from '../../data/resume-data';
 
 @Component({
   selector: 'app-contact',
   standalone: true,
-  imports: [IconComponent, RevealDirective],
+  imports: [IconComponent, RevealDirective, PanelScrollDirective],
   templateUrl: './contact.component.html',
   styleUrl: './contact.component.scss',
 })

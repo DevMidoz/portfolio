@@ -1,19 +1,20 @@
-<section id="skills" class="section skills">
-  <div class="container">
-    <div class="section-head" appReveal>
-      <span class="eyebrow">What I work with</span>
-      <h2 class="section-title">Skills &amp; Toolbox</h2>
-      <p class="section-desc">
-        A versatile full-stack toolkit spanning front-end frameworks, backend APIs, state management, testing and
-        modern AI-augmented workflows.
-      </p>
+<section id="skills" class="dashboard-panel" appReveal>
+  <div class="panel-header">
+    <span class="panel-icon">
+      <app-icon name="box" [size]="20" />
+    </span>
+    <div>
+      <span class="panel-eyebrow">What I work with</span>
+      <h2 class="panel-title">Skills &amp; Toolbox</h2>
     </div>
+  </div>
 
+  <div class="panel-body">
     <div class="skills-grid">
       @for (group of skillGroups; track group.category; let i = $index) {
         <div class="skill-card" appReveal [revealDelay]="(i % 4) * 80">
           <div class="skill-icon">
-            <app-icon [name]="group.icon" [size]="22" />
+            <app-icon [name]="group.icon" [size]="20" />
           </div>
           <h3>{{ group.category }}</h3>
           <div class="skill-tags">
@@ -25,4 +26,8 @@
       }
     </div>
   </div>
+
+  <button type="button" class="panel-scroll-hint" appPanelScroll aria-label="Scroll for more skills">
+    <app-icon name="arrow-down" [size]="14" />
+  </button>
 </section>

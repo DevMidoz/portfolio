@@ -1,13 +1,14 @@
 import { Component, OnInit, signal } from '@angular/core';
 import { IconComponent } from '../../shared/icon/icon.component';
 import { RevealDirective } from '../../core/directives/reveal.directive';
+import { PanelScrollDirective } from '../../core/directives/panel-scroll.directive';
 import { GithubRepo, GithubService } from '../../core/services/github.service';
 import { FEATURED_REPOS, PROFILE } from '../../data/resume-data';
 
 @Component({
   selector: 'app-projects',
   standalone: true,
-  imports: [IconComponent, RevealDirective],
+  imports: [IconComponent, RevealDirective, PanelScrollDirective],
   templateUrl: './projects.component.html',
   styleUrl: './projects.component.scss',
 })

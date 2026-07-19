@@ -1,0 +1,14 @@
+<nav class="sidebar" aria-label="Section navigation">
+  @for (item of items; track item.id) {
+    <a
+      class="sidebar-link"
+      [class.active]="active() === item.id"
+      [href]="'#' + item.id"
+      [attr.aria-label]="item.label"
+      [attr.aria-current]="active() === item.id ? 'true' : null"
+    >
+      <app-icon [name]="item.icon" [size]="18" />
+      <span class="sidebar-tooltip">{{ item.label }}</span>
+    </a>
+  }
+</nav>

@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { NavbarComponent } from './layout/navbar/navbar.component';
+import { SidebarComponent } from './layout/sidebar/sidebar.component';
 import { FooterComponent } from './layout/footer/footer.component';
 import { HeroComponent } from './sections/hero/hero.component';
 import { AboutComponent } from './sections/about/about.component';
@@ -14,6 +15,7 @@ import { ContactComponent } from './sections/contact/contact.component';
   standalone: true,
   imports: [
     NavbarComponent,
+    SidebarComponent,
     HeroComponent,
     AboutComponent,
     SkillsComponent,

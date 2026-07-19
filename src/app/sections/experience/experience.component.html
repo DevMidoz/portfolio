@@ -1,41 +1,43 @@
 <section id="experience" class="section experience">
   <div class="container">
-    <div class="section-head" appReveal>
-      <span class="eyebrow">Career journey</span>
-      <h2 class="section-title">Work Experience</h2>
-      <p class="section-desc">
-        Nearly a decade of shipping front-end and full-stack products across ERP, BIM, real-time collaboration
-        and consumer platforms.
-      </p>
-    </div>
+    <div class="section-panel">
+      <div class="section-head" appReveal>
+        <span class="eyebrow">Career journey</span>
+        <h2 class="section-title">Work Experience</h2>
+        <p class="section-desc">
+          Nearly a decade of shipping front-end and full-stack products across ERP, BIM, real-time collaboration
+          and consumer platforms.
+        </p>
+      </div>
 
-    <div class="timeline">
-      @for (job of experience; track job.company; let i = $index) {
-        <div class="timeline-item" appReveal [revealDelay]="(i % 4) * 90">
-          <div class="timeline-marker">
-            <span class="marker-dot" [class.current]="job.current"></span>
-          </div>
-          <div class="timeline-card">
-            <div class="timeline-card-head">
-              <div>
-                <h3>{{ job.role }}</h3>
-                <p class="timeline-company">{{ job.company }}</p>
-              </div>
-              <span class="timeline-date" [class.current]="job.current">
-                {{ job.start }} — {{ job.end }}
-              </span>
+      <div class="timeline">
+        @for (job of experience; track job.company; let i = $index) {
+          <div class="timeline-item" appReveal [revealDelay]="(i % 4) * 90">
+            <div class="timeline-marker">
+              <span class="marker-dot" [class.current]="job.current"></span>
             </div>
-            <ul class="timeline-points">
-              @for (point of job.points; track point) {
-                <li>
-                  <app-icon name="chevron-right" [size]="14" />
-                  <span>{{ point }}</span>
-                </li>
-              }
-            </ul>
+            <div class="timeline-card">
+              <div class="timeline-card-head">
+                <div>
+                  <h3>{{ job.role }}</h3>
+                  <p class="timeline-company">{{ job.company }}</p>
+                </div>
+                <span class="timeline-date" [class.current]="job.current">
+                  {{ job.start }} — {{ job.end }}
+                </span>
+              </div>
+              <ul class="timeline-points">
+                @for (point of job.points; track point) {
+                  <li>
+                    <app-icon name="chevron-right" [size]="14" />
+                    <span>{{ point }}</span>
+                  </li>
+                }
+              </ul>
+            </div>
           </div>
-        </div>
-      }
+        }
+      </div>
     </div>
   </div>
 </section>

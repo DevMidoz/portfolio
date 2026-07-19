@@ -1,27 +1,28 @@
-<section id="projects" class="section projects">
-  <div class="container">
-    <div class="section-head" appReveal>
-      <span class="eyebrow">Recent work</span>
-      <h2 class="section-title">Featured Projects</h2>
-      <p class="section-desc">
-        Live from my GitHub — a snapshot of recent public repositories. Fetched directly from
-        the GitHub API, no backend required.
-      </p>
+<section id="projects" class="dashboard-panel" appReveal>
+  <div class="panel-header">
+    <span class="panel-icon">
+      <app-icon name="folder" [size]="20" />
+    </span>
+    <div>
+      <span class="panel-eyebrow">Recent work</span>
+      <h2 class="panel-title">Featured Projects</h2>
     </div>
+  </div>
 
+  <div class="panel-body">
     @if (loading()) {
       <div class="projects-grid">
-        @for (i of [1, 2, 3, 4, 5, 6]; track i) {
+        @for (i of [1, 2, 3, 4]; track i) {
           <div class="project-card skeleton"></div>
         }
       </div>
     } @else if (errored() || repos().length === 0) {
       <div class="projects-grid">
         @for (repo of fallbackRepos; track repo.name) {
-          <a class="project-card" [href]="repo.html_url" target="_blank" rel="noopener" appReveal>
+          <a class="project-card" [href]="repo.html_url" target="_blank" rel="noopener">
             <div class="project-card-head">
-              <app-icon name="code" [size]="20" />
-              <app-icon name="external" [size]="16" class="external-icon" />
+              <app-icon name="code" [size]="18" />
+              <app-icon name="external" [size]="14" class="external-icon" />
             </div>
             <h3>{{ repo.name }}</h3>
             <p class="project-desc">View this project on GitHub.</p>
@@ -40,8 +41,8 @@
             [revealDelay]="(i % 6) * 70"
           >
             <div class="project-card-head">
-              <app-icon name="code" [size]="20" />
-              <app-icon name="external" [size]="16" class="external-icon" />
+              <app-icon name="code" [size]="18" />
+              <app-icon name="external" [size]="14" class="external-icon" />
             </div>
             <h3>{{ repo.name }}</h3>
             <p class="project-desc">{{ repo.description || 'No description provided.' }}</p>
@@ -50,11 +51,11 @@
                 <span class="pill">{{ repo.language }}</span>
               }
               <span class="meta-stat">
-                <app-icon name="star" [size]="14" />
+                <app-icon name="star" [size]="13" />
                 {{ repo.stargazers_count }}
               </span>
               <span class="meta-stat">
-                <app-icon name="fork" [size]="14" />
+                <app-icon name="fork" [size]="13" />
                 {{ repo.forks_count }}
               </span>
             </div>
@@ -63,11 +64,15 @@
       </div>
     }
 
-    <div class="projects-cta" appReveal>
+    <div class="projects-cta">
       <a class="btn btn-outline" [href]="profile.github" target="_blank" rel="noopener">
         <app-icon name="github" [size]="16" />
-        View all projects on GitHub
+        View all on GitHub
       </a>
     </div>
   </div>
+
+  <button type="button" class="panel-scroll-hint" appPanelScroll aria-label="Scroll for more projects">
+    <app-icon name="arrow-down" [size]="14" />
+  </button>
 </section>
